@@ -45,8 +45,16 @@ public class FuncionDao {
 			return con.createQuery(sql).executeAndFetchTable().asList();
 		}
 	}
+	
+	public List<Map<String , Object>> getOne(long id){
+		String sql = "Select id , id_sala , id_pelicula , inicio , fin  from funcion where id = "+id;
+		try(Connection con = sql2o.open()){
+			return con.createQuery(sql).executeAndFetchTable().asList();
+		}
+		
+	}
 
-	public Date getFin(Date fecha, int hora, int minutos) {
+	private Date getFin(Date fecha, int hora, int minutos) {
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(fecha);
 		calendar.add(Calendar.HOUR, hora);

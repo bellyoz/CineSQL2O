@@ -2,8 +2,8 @@ package co.edu.usa.adf.Entidades;
 
 public class Ticket {
 	private long id;
-	private Funcion funcion;
-	private Silla silla;
+	private int funcion;
+	private int silla;
 
 	public long getId() {
 		return id;
@@ -13,19 +13,19 @@ public class Ticket {
 		this.id = id;
 	}
 
-	public Funcion getFuncion() {
+	public int getFuncion() {
 		return funcion;
 	}
 
-	public void setFuncion(Funcion funcion) {
+	public void setFuncion(int funcion) {
 		this.funcion = funcion;
 	}
 
-	public Silla getSilla() {
+	public int getSilla() {
 		return silla;
 	}
 
-	public void setSilla(Silla silla) {
+	public void setSilla(int silla) {
 		this.silla = silla;
 	}
 

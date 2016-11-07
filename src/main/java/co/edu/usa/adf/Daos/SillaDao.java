@@ -35,6 +35,18 @@ public class SillaDao {
 		}
 		
 	}
+	
+	public void update(int id , int sala){
+		String updateSql = "update silla set disponible = :disponible where id = :idParam && id_sala = :idSala";
+
+		try (Connection con = sql2o.open()) {
+		    con.createQuery(updateSql)
+			    .addParameter("disponible", false)
+			    .addParameter("idParam", id)
+			    .addParameter("idSala", sala)
+			    .executeUpdate();
+		}
+	}
 	public List<Map<String , Object>> getAll(){
 		String sql =
 		        "SELECT id , fila , numero ,disponible , id_sala FROM silla";
@@ -42,5 +54,12 @@ public class SillaDao {
 		    try(Connection con = sql2o.open()) {
 		        return con.createQuery(sql).executeAndFetchTable().asList();
 		    }
+	}
+	public List<Map<String , Object>> getOne(long id , int sala){
+		String sql = "Select id , fila , numero ,disponible , id_sala FROM silla where id = "+id+" && id_sala = "+sala;
+		try(Connection con = sql2o.open()){
+			return con.createQuery(sql).executeAndFetchTable().asList();
+		}
+		
 	}
 }

@@ -7,8 +7,9 @@ import java.util.Map.Entry;
 
 import co.edu.usa.adf.Daos.FuncionDao;
 import co.edu.usa.adf.Daos.PeliculaDao;
+import co.edu.usa.adf.Daos.TicketDao;
 import co.edu.usa.adf.Entidades.Funcion;
-
+import co.edu.usa.adf.Entidades.Ticket;
 
 /**
  * Hello world!
@@ -17,11 +18,11 @@ import co.edu.usa.adf.Entidades.Funcion;
 public class App {
 	public static void main(String[] args) {
 
-	/*	PeliculaDao pelicula = new PeliculaDao();
-		
-		List<Map<String,Object>> peli = pelicula.getOne(1);
-		System.out.println("pelicula "+peli.get(0).get("duracion"));
 		/*
+		 * PeliculaDao pelicula = new PeliculaDao();
+		 * 
+		 * List<Map<String,Object>> peli = pelicula.getOne(1);
+		 * System.out.println("pelicula "+peli.get(0).get("duracion")); /*
 		 * if(pelicula.insert(peli)){ System.out.println("insertado"); }else{
 		 * System.out.println("pailas soxcio"); }
 		 */
@@ -53,13 +54,16 @@ public class App {
 		 * List<Map<String, Object>> sillas = silla.getAll(); for(int i= 0 ; i<
 		 * sillas.size() ; i++){ System.out.println(sillas.get(i).get("id")); }
 		 */
-		FuncionDao funcion = new FuncionDao();
-		Funcion funcionsita = new Funcion();
-		funcionsita.setSala(1);
-		funcionsita.setPelicula(1);
-		funcionsita.setInicio(new Date());
-		funcion.insert(funcionsita);
-		
-		
+		/*
+		 * FuncionDao funcion = new FuncionDao(); Funcion funcionsita = new
+		 * Funcion(); funcionsita.setSala(1); funcionsita.setPelicula(1);
+		 * funcionsita.setInicio(new Date()); funcion.insert(funcionsita);
+		 */
+		TicketDao ticket = new TicketDao();
+		Ticket ticketsito = new Ticket();
+		ticketsito.setFuncion(1);
+		ticketsito.setSilla(1);
+		ticket.insert(ticketsito);
+		System.out.println("fin");
 	}
 }
