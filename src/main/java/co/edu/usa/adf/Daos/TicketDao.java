@@ -12,9 +12,9 @@ import org.sql2o.Sql2o;
 
 import co.edu.usa.adf.Entidades.Pelicula;
 
-public class PeliculaDao {
+public class TicketDao {
 	private Sql2o sql2o;
-	public PeliculaDao() {
+	public TicketDao() {
 		this.sql2o = new Sql2o("jdbc:mysql://localhost:3306/CineFrame", "root", "uchiha01");
 		
 	}
@@ -40,12 +40,5 @@ public class PeliculaDao {
 		    try(Connection con = sql2o.open()) {
 		        return con.createQuery(sql).executeAndFetchTable().asList();
 		    }
-	}
-	public List<Map<String , Object>> getOne(long id){
-		String sql = "Select id , pelicula , genero , duracion from pelicula where id = "+id;
-		try(Connection con = sql2o.open()){
-			return con.createQuery(sql).executeAndFetchTable().asList();
-		}
-		
 	}
 }
